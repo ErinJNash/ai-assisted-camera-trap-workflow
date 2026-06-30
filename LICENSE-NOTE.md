@@ -20,10 +20,4 @@ share and adapt this material for any purpose, including commercially, as long
 as you give appropriate credit.
 
 **Suggested attribution:**
-> "AI-Assisted Camera Trap Workflow" by [YOUR NAME], used under CC BY 4.0.
-
-## TODO
-
-- Replace `[YOUR NAME]` above and in the copyright line of `LICENSE-docs.txt`.
-- Add your name / year to the Apache `LICENSE` copyright line if you wish
-  (Apache 2.0 does not require a NOTICE file, but you may add one).
+> "AI-Assisted Camera Trap Workflow" by ErinJNash, used under CC BY 4.0.
