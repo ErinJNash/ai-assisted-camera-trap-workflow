@@ -21,7 +21,7 @@ This camera trap workflow runs in six stages. Each links to the relevant folder 
 | **1. Organise images** | Rename and organise image files by folder path into a fixed structure with unique names | images → organised images | [`01-capture-retrieve/`](01-capture-retrieve/) |
 | **2. AI processing** | Run detection + classification models over images. I use [AddaxAI](https://addaxdatascience.com/addaxai/) for this step. Document settings used. | images → `.json` | [`02-addaxai/`](02-addaxai/) |
 | **3. Post AI processing** | Python script: consensus clustering to fix likely errors, flag species for human review, reshape for import into Timelapse | `.json` → `.csv` | [`03-postprocess/`](03-postprocess/) |
-| **4. Verify & correct** | Human review in [Timelapse](https://saul.cpsc.ucalgary.ca/timelapse/) (example template provided). AI tags sit alongside human primary analyst and reviewer tags | `.csv` → `.xlsx` | [`04-verify-correct/`](04-verify-correct/) |
+| **4. Verify & correct** | Human review in [Timelapse](https://timelapse.ucalgary.ca/) (example template provided). AI tags sit alongside human primary analyst and reviewer tags | `.csv` → `.xlsx` | [`04-verify-correct/`](04-verify-correct/) |
 | **5. Back up** | Python script writes the verified tags into image metadata | `.xlsx` → tagged images | [`05-backup/`](05-backup/) |
 | **6. Summarise for further analysis** | Summarise basic information e.g. detections; example R code that reads the Timelapse `.xlsx` (fuller pipeline kept in a private repo) | `.xlsx` → summaries | [`06-summarise/`](06-summarise/) |
 
