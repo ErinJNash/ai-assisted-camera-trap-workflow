@@ -6,7 +6,7 @@
 
 > ## ⭐ Start here — before you grab any code
 >
-> The workflow below links out to the code, documents, and files for each stage. But **which tools you use — and whether you use AI at all — is a decision, not a default.** Before picking up code from any stage, please read [**Deciding whether (and how) to use AI**](#deciding-whether-and-how-to-use-ai-in-camera-trap-workflows) further down this page. It is the most important thing here. The short version: every option, including all-human review, has an error profile; your job is to understand the error profile of each tool as it relates to your particular image set, and to choose an error profile you can live with for *your* end goals.
+> The workflow below links out to the code, documents, and files for each stage. But **which tools you use — and whether to use AI at all — is a decision, not a default.** Before picking up code from any stage, please read [**Deciding whether (and how) to use AI**](#deciding-whether-and-how-to-use-ai-in-camera-trap-workflows) further down this page. It is the most important thing here. The short version: every option, including all-human review, has an error profile; your job is to understand the error profile of each tool as it relates to your particular image set, and to choose an error profile you can live with for *your* end goals.
 
 ---
 
