@@ -135,13 +135,11 @@ Choosing a workflow is not primarily a technical decision; it is a decision abou
 
 ### Start with your values
 
-Two kinds of values shape the choice. **Epistemic** values concern getting at the truth — accuracy, completeness, reproducibility. **Non-epistemic** values concern everything else that legitimately matters when using camera traps and their data for research and monitoring — time, cost, animal welfare, the stakes of a management decision, obligations to funders or communities. Both are real, and misinterpreting the choice as "purely scientific" just hides the non-epistemic values rather than removing them.
+Two broad kinds of values are relevant to your decision. **Epistemic** values concern getting at the truth — accuracy, completeness, reproducibility. **Non-epistemic** values concern everything else that legitimately matters when using camera traps and their data for research and monitoring — time, cost, animal welfare, the stakes of research/monitoring finding or a management decision, obligations to funders or communities. It's important to be clear about what your values are and how weighty different values are in relation to other values for your particular project and circumstances. This may be your decision to make; or it might be a decision that a research group or governance body has to make collectively.
 
-### Then weigh the consequences of error
+### Weigh the consequences of error
 
-Philosophers of science have argued, persuasively, that when our conclusions can be wrong and being wrong has consequences, the choice of how much evidence to demand — and which errors to risk — is not value-free. Translated to camera traps: deciding to accept a workflow with the associated risk of missing X% of images of [insert reptile from Mary's study] is a value judgement about the cost of those misses, not a neutral technical setting. (Douglas and Elliott are worth reading directly if this idea is new; see [Further reading](#further-reading).)
-
-> **TODO:** confirm the reptile example from Mary's study.
+When our conclusions can be wrong and being wrong has consequences for what we value, the choice of how much evidence to demand — and which errors to risk — is not itself value-free. Translated to camera traps: deciding to accept a workflow with a particular error rate/risk profile is a value judgement about the costs of those errors, and benefits of what you gain by accepting that risk profile; it's not a neutral technical setting. (Philosophers of science like Heather Douglas and Kevin Elliott are worth reading directly if this idea is new; see [Further reading](#further-reading).)
 
 ### Then compare the real options
 
@@ -150,15 +148,13 @@ Only now does it make sense to compare options, and the comparison must be concr
 - *how does **this model** perform on **your dataset**, for **your species of interest**; and*
 - *what is the **comparative performance of the alternatives**?* — using no AI (i.e. using humans, or using particular humans), using a different AI model, using a particular AI model with a particular workflow that has a higher degree of "human in the loop" checks and balances, etc.
 
-Published benchmark numbers are a starting hypothesis, not an answer. A model that scores beautifully on a continental benchmark can perform poorly on your cameras, in your habitat, on the species you most care about.
-
 ## 5. Evaluating a model on your own data
 
-This is the practical core, and the step most often skipped. You cannot know how a model performs for you until you measure it on labelled data from your own project.
+This is the practical core. You cannot know how a model performs for you until you measure it on labelled data from your own project.
 
 ### Build a validation set
 
-Hold out a set of images you have labelled manually and that you are very confident have been labelled accurately. These images should not have been used to train the model. Make sure this set includes your species of interest, your hardest conditions (night, rain, partial views), and your rare classes. A validation set that contains only easy daytime images will flatter every model you test.
+Collate a set of images you have labelled manually and that you are very confident have been labelled accurately that are similar to the images you intend to analyse with AI (camera make/model, camera set up, habitat type, species mix, etc.). Make sure this set includes your species of interest, your hardest conditions (night, rain, partial views), and your rare classes. A validation set that contains only easy daytime images will mislead you. These images should not have been used to train the model. 
 
 ### Compute metrics that mean something
 
@@ -167,25 +163,21 @@ Hold out a set of images you have labelled manually and that you are very confid
 - **Per-class performance:** overall accuracy hides the truth. Look at each species separately — especially the rare ones.
 - **Confusion matrix:** which classes get mistaken for which? This tells you exactly where the dangerous confusions live.
 
-### Confidence thresholds: your main lever
-
-The confidence threshold is the single most actionable control most users have, and it is where the framework above becomes concrete. Raising the threshold accepts fewer detections: precision goes up, recall goes down — you make fewer false alarms but miss more. Lowering it does the reverse.
-
-There is no universally correct threshold. The right one falls directly out of your consequences-of-error analysis. If missing even one detection of a threatened species is unacceptable for your end-purposes, you favour recall and accept more false positives to review. If a missed common-species frame barely matters, you favour precision. Set the threshold deliberately, record it, and revisit it per species rather than accepting a single global default.
+These metrics can not only inform a decision to use or not use AI, but can also be used to select particular AI workflows, set AI processing settings (see 'confidence thresholds' next) and design post-processing steps to correct common errors or flag certain species for human review (see '03_postprocess'). 
 
 ### Class imbalance and rare species
 
-In some cases, the species you care most about may be the one the model has seen least. Rare classes are where errors cluster, and where a single confident misclassification can distort an entire analysis. Evaluate rare species specifically; do not let a high overall accuracy reassure you about a class the model has barely encountered.
+In some cases, the species you care most about may be the one the model has seen least or perhaps not at all. Rare classes are where errors cluster, and where a single confident misclassification can distort an entire analysis. Evaluate rare species specifically; do not let a high overall accuracy reassure you about a class the model has barely encountered.
 
 ## 6. Workflows, including "no AI"
 
-With your values, error tolerances, and measured performance in hand, you are finally in a position to choose a workflow.
+With your values, error tolerances, and measured performance in hand, you are in a position to choose a workflow.
 
 ### No AI
 
-For some purposes, the right answer will be to not use AI at all. For example, for some research purposes, the error rates associated with the AI models currently available to assist in processing camera trap images may be too high for researchers to tolerate for that particular purpose. In this case, they may opt for a completely manual, human-driven workflow.
+For some purposes, the right answer will be to not use AI at all. For example, for some research purposes, the error rates associated with the AI models currently available to assist in processing camera trap images may be too high for researchers to tolerate for a particular purpose. In this case, they may opt for a completely manual, human-driven workflow.
 
-This is a legitimate, defensible outcome of this process rather than a failure of it. Going through the above process should help you to understand:
+This is a legitimate, defensible outcome of this process. Going through the above process should help you to understand:
 
 - The error rates associated with using humans, including particular groups of humans, to process and annotate the data compared to AI-assisted workflows.
 - The consequences of human-based errors and the impacts of these errors on end-values.
@@ -193,15 +185,19 @@ This is a legitimate, defensible outcome of this process rather than a failure o
 
 ### Human-in-the-loop triage
 
-The most useful middle ground is usually to let AI triage rather than decide. Use the model to sort, then spend human attention where it matters: review only low-confidence detections, or only the species of interest, or only the episodes the model flags as containing animals. This captures most of the time savings while keeping human judgement on the consequential calls.
+The most useful middle ground is usually to let AI triage rather than decide. Use the model to sort, then spend human attention where it matters. Saul Greenberg's has an excellent guide to using a spectrum of different AI assisted workflows in Timelapse ([Timelapse Image Recognition Guide](https://timelapse.ucalgary.ca/wp-content/uploads/Guides/TimelapseImageRecognitionGuide.pdf/)). 
 
-### Specific workflow options
+### AI with programmatic post-processing 
 
-- **Addax AI settings:** different configurations trade speed, recall, and effort differently; choose the setting that matches the error profile you decided on, not the default. (My settings are documented in [`02-addaxai/`](02-addaxai/).)
-- **Saul's Timelapse recognitions guide:** the recommended workflows in the Timelapse documentation are well thought through and worth following closely ([Timelapse Image Analyser](https://saul.cpsc.ucalgary.ca/timelapse/)).
-- **My own workflows:** the six stages mapped at the top of this page, with code and documents in each stage folder.
+As you learn more about how the particular AI model you use with your datasets performs, you will get a better understanding of the common errors it makes and you can design further code to programmatically correct these errors (See: 03-postprocess for example Python code i currently use).
+
+Note that Addax AI is likely to soon release an updated version of the Addax AI platform that has similar features built in, so this code may soon not be needed. 
 
 ## 7. Practical considerations
+
+### AddaxAI settings
+- Different configurations trade speed, recall, and effort differently; choose the setting that matches the error profile you decided on, not the default. (My settings are documented in [`02-addaxai/`](02-addaxai/).)
+
 
 ### Data management and reproducibility
 
