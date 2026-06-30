@@ -1,6 +1,6 @@
 # AI-Assisted Camera Trap Workflow
 
-*An example end-to-end workflow for turning camera trap images into ecological data, and a practitioner's guide to deciding whether, and how, to use AI along the way.*
+*An example workflow for using AI in processing camera trap images, and a practitioner's guide to deciding whether, and how, to use AI.*
 
 ---
 
