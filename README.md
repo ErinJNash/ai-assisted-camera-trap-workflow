@@ -121,8 +121,8 @@ False negatives are the more concerning of the two types of error, because a mis
 
 <table>
 <tr>
-<td><img src="docs/images/false-positive-stick-deer.jpg" width="350" alt="A camera trap image in which a curved stick lying on leaf litter has been boxed by MegaDetector and labelled 'fallow deer .63' by the classifier."><br><em>False positive: a fallen stick boxed by MegaDetector and labelled "fallow deer" with 0.63 confidence.</em></td>
-<td><img src="docs/images/false-negative-echidna.jpg" width="350" alt="A camera trap image of forest leaf litter with an echidna that was not detected."><br><em>False negative: an echidna (left of frame) is missed by MegaDetector.</em></td>
+<td><img src="docs/images/ExampleFalsePositiveStickDeer.jpg" width="350" alt="A camera trap image in which a curved stick lying on leaf litter has been boxed by MegaDetector and labelled 'fallow deer .63' by the classifier."><br><em>False positive: a fallen stick boxed by MegaDetector and labelled "fallow deer" with 0.63 confidence.</em></td>
+<td><img src="docs/images/FalseNegativeEchidna.jpg" width="350" alt="A camera trap image of forest leaf litter with an echidna that was not detected."><br><em>False negative: an echidna (left of frame) is missed by MegaDetector.</em></td>
 </tr>
 </table>
 
