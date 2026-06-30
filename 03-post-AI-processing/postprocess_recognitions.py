@@ -161,6 +161,8 @@ LABEL_REMAP = {
     "australian raven": "bird spp",
     "grey currawong":   "currawong spp",
     "pied currawong":   "currawong spp",
+    "deer":                "deer (unidenitified)",
+    "eastern pygmy possum": "eastern pygmy-possum",
 }
 
 # Species that ALWAYS require human review (and are never silently overridden).
@@ -169,11 +171,11 @@ LABEL_REMAP = {
 #   >>> REPLACE THIS LIST with your own priority/pest species (lowercase) <<<
 PRIORITY_REVIEW_SPECIES = {
     "domestic cat feral", "red fox", "sambar deer", "red deer", "fallow deer",
-    "deer", "bush rat", "black rat", "swamp rat", "broad-toothed rat",
+    "deer (unidenitified)", "bush rat", "black rat", "swamp rat", "broad-toothed rat",
     "house mouse", "white-footed dunnart", "swamp antechinus",
     "mainland dusky antechinus", "agile antechinus", "spot-tailed quoll",
     "southern long-nosed bandicoot", "southern brown bandicoot",
-    "long-nosed potoroo", "eastern pygmy possum",
+    "long-nosed potoroo", "eastern pygmy-possum",
 }
 
 ##############################################################################
@@ -185,7 +187,12 @@ PRIORITY_REVIEW_SPECIES = {
 DETECTION_ONLY_LABELS = {"person", "vehicle"}
 NON_SPECIES           = {"unidentified animal", "false detection"} | DETECTION_ONLY_LABELS
 SUPPRESSED_LABEL      = "False Detection (suppressed)"
-PRESERVE_CASE_TAGS    = {"bird spp": "Bird spp", "currawong spp": "Currawong spp"}
+PRESERVE_CASE_TAGS    = {
+    "bird spp": "Bird spp",
+    "currawong spp": "Currawong spp",
+    "deer (unidenitified)": "Deer (unidenitified)",
+    "eastern pygmy-possum": "Eastern Pygmy-possum",
+}
 GENERIC_ANIMAL        = "animal"
 
 
