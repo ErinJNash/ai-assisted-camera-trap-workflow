@@ -113,8 +113,8 @@ You cannot choose responsibly between options until you understand how each one 
 
 - **False negatives:** the detector misses an animal that is actually present in the image. MegaDetector 5a and 5b wasn't very good at detecting Australian reptiles, for example. For our camera sites in the Otway Ranges and Otway Plains of Victoria, I've found that when MegaDetector misses animals, it's often when they're moving away from the camera, like the Short-beaked Echina below. Although more recent releases of MegaDetector (such as Redwood) perform better on Australian animals than previous versions, MegaDetector is trained on a range of animals from across the world, not exclusively Australian animals.
 
-![MegaDetector false negative - MegaDetector has missed that there is an animal in the image; the classifier therefore is not passed on this image to classify](docs/images/ExampleFalsePositiveStickDeer.jpg)
-*A stick mistaken for an animal — a typical false positive.*
+![MegaDetector false negative - MegaDetector has missed that there is an animal in the image; the classifier therefore is not passed on this image to classify](docs/images/FalseNegativeEchidna.jpg)
+*A missed animal — a false negative.*
 
 False negatives are the more concerning of the two types of error, because a missed detection is invisible. A false positive announces itself for review; a false negative simply never appears.
 
