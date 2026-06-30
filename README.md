@@ -19,11 +19,11 @@ This camera trap workflow runs in six stages. Each links to the relevant folder 
 | Stage | What happens | In / out | Go to |
 |------:|--------------|----------|-------|
 | **1. Capture & retrieve** | Rename and organise image files by folder path into a fixed structure with unique names | images → organised images | [`01-capture-retrieve/`](01-capture-retrieve/) |
-| **2. AddaxAI** | Run detection + classification through [AddaxAI](https://addaxdatascience.com/addaxai/); settings documented | images → `.json` | [`02-addaxai/`](02-addaxai/) |
-| **3. Post-process** | Python script: consensus clustering to fix likely errors, flag species for human review, reshape for Timelapse | `.json` → `.csv` | [`03-postprocess/`](03-postprocess/) |
-| **4. Verify & correct** | Human review in [Timelapse](https://saul.cpsc.ucalgary.ca/timelapse/) (template provided); AI tags sit alongside analyst and reviewer tags | `.csv` → `.xlsx` | [`04-verify-correct/`](04-verify-correct/) |
+| **2. AI processing** | Run detection + classification models over images. I use [AddaxAI](https://addaxdatascience.com/addaxai/) for this step. Document settings used. | images → `.json` | [`02-addaxai/`](02-addaxai/) |
+| **3. Post AI processing** | Python script: consensus clustering to fix likely errors, flag species for human review, reshape for import into Timelapse | `.json` → `.csv` | [`03-postprocess/`](03-postprocess/) |
+| **4. Verify & correct** | Human review in [Timelapse](https://saul.cpsc.ucalgary.ca/timelapse/) (example template provided). AI tags sit alongside human primary analyst and reviewer tags | `.csv` → `.xlsx` | [`04-verify-correct/`](04-verify-correct/) |
 | **5. Back up** | Python script writes the verified tags into image metadata | `.xlsx` → tagged images | [`05-backup/`](05-backup/) |
-| **6. Summarise for analysis** | Summarise detections; example R code that reads the Timelapse `.xlsx` (fuller pipeline kept in a private repo) | `.xlsx` → summaries | [`06-summarise/`](06-summarise/) |
+| **6. Summarise for analysis** | Summarise basic information e.g. detections; example R code that reads the Timelapse `.xlsx` (fuller pipeline kept in a private repo) | `.xlsx` → summaries | [`06-summarise/`](06-summarise/) |
 
 > **Should you use AI?** That is exactly what the guide below is for**. For some purposes the right answer will be to *not use AI* — this is a legitimate, defensible choice.
 
@@ -35,7 +35,7 @@ This camera trap workflow runs in six stages. Each links to the relevant folder 
 
 # Deciding whether (and how) to use AI in camera trap workflows
 
-*A practitioner's guide to choosing, evaluating, and responsibly deploying AI in ecological image analysis.*
+*A guide for practictioners about choosing, evaluating, and responsibly deploying AI in ecological image analysis.*
 
 ## Contents
 
