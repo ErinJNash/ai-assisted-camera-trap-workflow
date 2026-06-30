@@ -1,7 +1,5 @@
 # AI processing
 
-# AI processing
-
 This stage covers how I run camera trap images through [AddaxAI](https://addaxdatascience.com/addaxai/) to detect and classify animals, and the settings I use.
 
 ## Coming soon
