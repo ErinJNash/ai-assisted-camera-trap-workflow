@@ -1,12 +1,12 @@
 # AI-Assisted Camera Trap Workflow
 
-*My end-to-end workflow for turning camera trap images into ecological data — and a practitioner's guide to deciding whether, and how, to use AI along the way.*
+*An example end-to-end workflow I use for turning camera trap images into ecological data, and a practitioner's guide to deciding whether, and how, to use AI along the way.*
 
 ---
 
 > ## ⭐ Start here — before you grab any code
 >
-> The workflow below links out to the code, documents, and files for each stage. But **which tools you use — and whether you use AI at all — is a decision, not a default.** Before picking up code from any stage, please read [**Deciding whether (and how) to use AI**](#deciding-whether-and-how-to-use-ai-in-camera-trap-workflows) further down this page. It is the most important thing here. The short version: every option, including all-human review, has an error profile; the job is to choose one you can live with for *your* purpose.
+> The workflow below links out to the code, documents, and files for each stage. But **which tools you use — and whether you use AI at all — is a decision, not a default.** Before picking up code from any stage, please read [**Deciding whether (and how) to use AI**](#deciding-whether-and-how-to-use-ai-in-camera-trap-workflows) further down this page. It is the most important thing here. The short version: every option, including all-human review, has an error profile; the job is to understand each error profile as it relates to your particular image set, and to choose an error profile you can live with for *your* end goals.
 
 ---
 
@@ -14,20 +14,18 @@
 
 ![Six-stage camera trap workflow diagram](docs/images/workflow-diagram.png)
 
-My camera trap analysis runs in six stages. Each links to the relevant folder in this repository.
+This camera trap workflow runs in six stages. Each links to the relevant folder in this repository.
 
 | Stage | What happens | In / out | Go to |
 |------:|--------------|----------|-------|
 | **1. Capture & retrieve** | Rename and organise image files by folder path into a fixed structure with unique names | images → organised images | [`01-capture-retrieve/`](01-capture-retrieve/) |
-| **2. AddaxAI** | Run detection + classification through [AddaxAI](#); settings documented | images → `.json` | [`02-addaxai/`](02-addaxai/) |
+| **2. AddaxAI** | Run detection + classification through [AddaxAI](https://addaxdatascience.com/addaxai/); settings documented | images → `.json` | [`02-addaxai/`](02-addaxai/) |
 | **3. Post-process** | Python script: consensus clustering to fix likely errors, flag species for human review, reshape for Timelapse | `.json` → `.csv` | [`03-postprocess/`](03-postprocess/) |
 | **4. Verify & correct** | Human review in [Timelapse](https://saul.cpsc.ucalgary.ca/timelapse/) (template provided); AI tags sit alongside analyst and reviewer tags | `.csv` → `.xlsx` | [`04-verify-correct/`](04-verify-correct/) |
 | **5. Back up** | Python script writes the verified tags into image metadata | `.xlsx` → tagged images | [`05-backup/`](05-backup/) |
 | **6. Summarise for analysis** | Summarise detections; example R code that reads the Timelapse `.xlsx` (fuller pipeline kept in a private repo) | `.xlsx` → summaries | [`06-summarise/`](06-summarise/) |
 
 > **Which stages should use AI?** That is exactly what the guide below is for. The decision bites hardest at **stages 2–4**. For some purposes the right answer there is *no AI* — a legitimate, defensible choice rather than a failure.
-
-<!-- TODO: replace the AddaxAI (#) link in the table with https://addaxdatascience.com/addaxai/ or the URL you prefer. -->
 
 ---
 
