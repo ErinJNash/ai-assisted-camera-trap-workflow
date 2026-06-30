@@ -108,7 +108,7 @@ You cannot choose responsibly between options until you understand how each one 
 
 - **False positives:** the detector reports an animal in the image when there is in fact no animal in the image. MegaDetector sometimes thinks that grasstrees or tree trunks with interesting markings that look like eyes are animals.
 
-![MegaDetector false positive - MegaDetector thinks the stick is an animal, and the classifier predicts it's fallow deer](docs/images/ExampleFalsePositiveStickDeer.png)
+![MegaDetector false positive - MegaDetector thinks the stick is an animal, and the classifier predicts it's fallow deer](docs/images/ExampleFalsePositiveStickDeer.jpg)
 *A stick mistaken for an animal — a typical false positive.*
 
 - **False negatives:** the detector misses an animal that is actually present in the image. This evaluation of MegaDetector 5a and 5b by X et al. (202X) demonstrated that on a dataset from X, [the following species were often missed]. For one of my own camera sites in the Otway Ranges and Otway Plains of Victoria, I find that when MegaDetector misses animals, it's often when they're moving away from the camera. Although more recent releases of MegaDetector (such as Redwood) perform better on Australian animals than previous versions, MegaDetector is trained on a range of animals from across the world, not exclusively Australian animals.
