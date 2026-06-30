@@ -119,6 +119,13 @@ You cannot choose responsibly between options until you understand how each one 
 
 False negatives are the more concerning of the two types of error, because a missed detection is invisible. A false positive announces itself for review; a false negative simply never appears.
 
+<table>
+<tr>
+<td><img src="docs/images/false-positive-stick-deer.jpg" width="350" alt="A camera trap image in which a curved stick lying on leaf litter has been boxed by MegaDetector and labelled 'fallow deer .63' by the classifier."><br><em>False positive: a fallen stick boxed by MegaDetector and labelled "fallow deer" with 0.63 confidence.</em></td>
+<td><img src="docs/images/false-negative-echidna.jpg" width="350" alt="A camera trap image of forest leaf litter with an echidna that was not detected."><br><em>False negative: an echidna (left of frame) is missed by MegaDetector.</em></td>
+</tr>
+</table>
+
 ### Classifier errors
 
 Classifier errors come in two flavours that are worth keeping separate. The first is a **strictly false** classification: the label is simply wrong, as when an image of a Wedge-tailed Eagle is labelled as a Laughing Kookaburra.
