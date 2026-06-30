@@ -233,7 +233,7 @@ On my programs, the integration of AI into our camera trapping workflow has mean
 
 ### Further reading
 
-- Heather Douglas (2000). Inductive risk and values in science. ([Philosophy of Science](https://www.jstor.org/stable/188707)), 67(4), 559-579. ([
+- Heather Douglas (2000). Inductive risk and values in science. ([Philosophy of Science](https://www.jstor.org/stable/188707)), 67(4), 559-579.
 - Kevin Elliott (2017). A Tapestry of Values: An Introduction to Values in Science. ([Oxford University Press](https://doi.org/10.1093/acprof:oso/9780190260804.001.0001)).
 - Dan Morris' guide to machine learning and camera traps ([Everything I know about ML and camera traps](https://agentmorris.github.io/camera-trap-ml-survey/))
 
