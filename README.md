@@ -25,7 +25,7 @@ This camera trap workflow runs in six stages. Each links to the relevant folder 
 | **5. Back up** | Python script writes the verified tags into image metadata | `.xlsx` → tagged images | [`05-backup/`](05-backup/) |
 | **6. Summarise for analysis** | Summarise detections; example R code that reads the Timelapse `.xlsx` (fuller pipeline kept in a private repo) | `.xlsx` → summaries | [`06-summarise/`](06-summarise/) |
 
-> **Which stages should use AI?** That is exactly what the guide below is for. The decision bites hardest at **stages 2–4**. For some purposes the right answer there is *no AI* — a legitimate, defensible choice rather than a failure.
+> **Should you use AI?** That is exactly what the guide below is for**. For some purposes the right answer will be to *not use AI* — this is a legitimate, defensible choice.
 
 ---
 
