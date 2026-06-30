@@ -189,37 +189,35 @@ The most useful middle ground is usually to let AI triage rather than decide. Us
 
 ### AI with programmatic post-processing 
 
-As you learn more about how the particular AI model you use with your datasets performs, you will get a better understanding of the common errors it makes and you can design further code to programmatically correct these errors (See: 03-postprocess for example Python code i currently use).
+As you learn more about how the particular AI model you use with your datasets performs, you will get a better understanding of the common errors it makes. It's possible to design further code to programmatically correct these errors (See: 03-postprocess for example Python code i currently use).
 
-Note that Addax AI is likely to soon release an updated version of the Addax AI platform that has similar features built in, so this code may soon not be needed. 
+Note that Addax AI is likely to soon release an updated version of the Addax AI platform that has similar features built in, so this aspect of the post-processing code may soon not be needed.
 
 ## 7. Practical considerations
 
 ### AddaxAI settings
 - Different configurations trade speed, recall, and effort differently; choose the setting that matches the error profile you decided on, not the default. (My settings are documented in [`02-addaxai/`](02-addaxai/).)
 
-
 ### Data management and reproducibility
-
 - Keep AI outputs separate from human verifications, so you can always tell which is which.
 - Record the model name, version, and confidence threshold that produced each set of labels. "Classified by AI" is not reproducible; "Classified by model X v2.1 at threshold 0.7" is.
 - Version your outputs. Re-running a newer model is an improvement only if you can compare it against what came before.
 
 ### Privacy and legal considerations
-
 Camera traps capture people as well as animals. Have a plan for human captures — how they are stored, who can see them, and when they are deleted — and check the obligations that apply in your jurisdiction and on the land you are working on.
 
 ### Cost, compute, and accessibility
-
 Accessibility has improved, but barriers remain: hardware, processing time, and the learning curve of new software all have real costs. Factor them in honestly when comparing AI against human-only workflows, rather than treating model inference as free.
 
 ## 8. Key messages and the road ahead
 
-**AI is a tool, not a replacement for human judgement.** It changes where human attention is spent; it does not remove the need for it.
+**AI is a tool, not a replacement for human judgement.** It changes where human attention is spent; it does not remove the need for it. 
+
+On my programs, the integration of AI into our camera trapping workflow has meant that we have more human eyes on, and spend more time carefully analysing, the images that matter the most (the AI + at least two different human reviewers check all images of threatened and introduced species, and animals that could be easily mistaken for them). We can do this with the time we save by not reviewing most images of Black-tailed Wallabies and Eastern Grey Kangaroos, species that together represent more than 50% of our animal images. 
 
 **Any tool can be used well or badly.** How well partly depends on the skill of the user — and that skill can be built, by understanding how these models work and where they fail.
 
-**Tools will improve, but not on their own.** Progress turns on camera technology, on the composition of training libraries, and on the quality and accuracy of the annotations in those libraries. Better data, not just bigger models, is what moves the field.
+**Tools will improve, but not on their own.** Progress turns on camera technology, on the composition of training libraries, and on the quality and accuracy of the annotations in those libraries.
 
 ## 9. Glossary and further reading
 
@@ -235,16 +233,15 @@ Accessibility has improved, but barriers remain: hardware, processing time, and 
 
 ### Further reading
 
-- Heather Douglas, on the role of values and the consequences of error in scientific inference.
-- Kevin Elliott, on values in science and tolerable inductive risk.
-- MegaDetector and the broader open-source camera trap AI ecosystem documentation.
-- Timelapse Image Analyser and its recognitions guide ([saul.cpsc.ucalgary.ca/timelapse](https://saul.cpsc.ucalgary.ca/timelapse/)).
+- Heather Douglas (2000). Inductive risk and values in science. ([Philosophy of Science](https://www.jstor.org/stable/188707)), 67(4), 559-579. ([
+- Kevin Elliott (2017). A Tapestry of Values: An Introduction to Values in Science. ([Oxford University Press](https://doi.org/10.1093/acprof:oso/9780190260804.001.0001)).
+- Dan Morris' guide to machine learning and camera traps ([Everything I know about ML and camera traps](https://agentmorris.github.io/camera-trap-ml-survey/))
 
 ---
 
 ## Licence
 
-This repository is dual-licensed: **code** under the [Apache License 2.0](LICENSE), and all **written and visual material** (guides, README prose, the workflow diagram, and the Timelapse template) under [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE-docs.txt). See [`LICENSE-NOTE.md`](LICENSE-NOTE.md) for details and suggested attribution.
+This repository is dual-licensed: **code** under the [Apache License 2.0](LICENSE), and all **written and visual material** (guides, README prose, and the Timelapse template) under [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE-docs.txt). See [`LICENSE-NOTE.md`](LICENSE-NOTE.md) for details and suggested attribution.
 
 ---
 
