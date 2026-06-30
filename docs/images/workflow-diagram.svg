@@ -1,0 +1,70 @@
+<svg width="680" height="760" viewBox="0 0 680 760" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#2f6b3f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<style>
+.box { fill: #e3eef7; stroke: #2f6b3f; stroke-width: 1.5; }
+.boxgreen { fill: #e8f3ec; stroke: #2f6b3f; stroke-width: 1.5; }
+.cta { fill: #d6ecdd; stroke: #2f6b3f; stroke-width: 2.5; }
+.th { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #1f3d29; }
+.ts { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; fill: #3a5544; }
+.fmt { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; font-weight: 700; fill: #2f6b3f; }
+.cap { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; fill: #5a6b60; }
+.arr { stroke: #2f6b3f; stroke-width: 1.5; fill: none; }
+</style>
+</defs>
+
+<rect x="0" y="0" width="680" height="760" fill="#ffffff"/>
+
+<!-- 1 -->
+<rect class="box" x="150" y="24" width="380" height="58" rx="8"/>
+<text class="th" x="170" y="46" dominant-baseline="central">1 · Capture &amp; retrieve</text>
+<text class="ts" x="170" y="66" dominant-baseline="central">rename_images.py — organise &amp; uniquely name files</text>
+<text class="cap" x="350" y="98" text-anchor="middle" dominant-baseline="central">organised images</text>
+<line class="arr" x1="340" y1="84" x2="340" y2="112" marker-end="url(#arrow)"/>
+
+<!-- 2 -->
+<rect class="box" x="150" y="114" width="380" height="58" rx="8"/>
+<text class="th" x="170" y="136" dominant-baseline="central">2 · AddaxAI</text>
+<text class="ts" x="170" y="156" dominant-baseline="central">run detection + classification (settings documented)</text>
+<text class="fmt" x="368" y="188" text-anchor="middle" dominant-baseline="central">.json</text>
+<line class="arr" x1="340" y1="174" x2="340" y2="202" marker-end="url(#arrow)"/>
+
+<!-- 3 -->
+<rect class="box" x="150" y="204" width="380" height="68" rx="8"/>
+<text class="th" x="170" y="226" dominant-baseline="central">3 · Post-process</text>
+<text class="ts" x="170" y="245" dominant-baseline="central">postprocess.py — consensus fix, flag for review,</text>
+<text class="ts" x="170" y="261" dominant-baseline="central">reshape for Timelapse</text>
+<text class="fmt" x="366" y="288" text-anchor="middle" dominant-baseline="central">.csv</text>
+<line class="arr" x1="340" y1="272" x2="340" y2="300" marker-end="url(#arrow)"/>
+
+<!-- 4 -->
+<rect class="box" x="150" y="302" width="380" height="68" rx="8"/>
+<text class="th" x="170" y="324" dominant-baseline="central">4 · Verify &amp; correct</text>
+<text class="ts" x="170" y="343" dominant-baseline="central">Timelapse — human review (template provided);</text>
+<text class="ts" x="170" y="359" dominant-baseline="central">AI tags alongside analyst &amp; reviewer tags</text>
+<text class="fmt" x="368" y="386" text-anchor="middle" dominant-baseline="central">.xlsx</text>
+<line class="arr" x1="340" y1="370" x2="340" y2="398" marker-end="url(#arrow)"/>
+
+<!-- 5 -->
+<rect class="box" x="150" y="400" width="380" height="58" rx="8"/>
+<text class="th" x="170" y="422" dominant-baseline="central">5 · Back up</text>
+<text class="ts" x="170" y="442" dominant-baseline="central">write_metadata.py — write tags into image files</text>
+<text class="cap" x="396" y="474" text-anchor="middle" dominant-baseline="central">.xlsx (also feeds stage 6)</text>
+<line class="arr" x1="340" y1="458" x2="340" y2="486" marker-end="url(#arrow)"/>
+
+<!-- 6 -->
+<rect class="boxgreen" x="150" y="488" width="380" height="68" rx="8"/>
+<text class="th" x="170" y="510" dominant-baseline="central">6 · Summarise for analysis</text>
+<text class="ts" x="170" y="529" dominant-baseline="central">example_summary.R — reads Timelapse .xlsx</text>
+<text class="ts" x="170" y="545" dominant-baseline="central">(public example; fuller code kept private)</text>
+
+<!-- divider + CTA -->
+<line x1="150" y1="600" x2="530" y2="600" stroke="#9bbfa6" stroke-width="1" stroke-dasharray="3 3"/>
+<text class="th" x="340" y="588" text-anchor="middle" dominant-baseline="central">Read before choosing tools for stages 2–4</text>
+
+<rect class="cta" x="150" y="616" width="380" height="62" rx="8"/>
+<text class="th" x="340" y="638" text-anchor="middle" dominant-baseline="central">★ Deciding whether (and how) to use AI</text>
+<text class="ts" x="340" y="658" text-anchor="middle" dominant-baseline="central">the guide below — every option has an error profile</text>
+
+<text class="cap" x="340" y="712" text-anchor="middle" dominant-baseline="central">Each stage links to its folder in the repo</text>
+</svg>
