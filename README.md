@@ -72,43 +72,43 @@ This camera trap workflow runs in six stages. Each links to the relevant folder 
 
 ## 1. Introduction and scope
 
-This is a working document about how I think through the use of AI models in camera trap workflows. It is not a tutorial for any single piece of software, and it is not a claim that AI is always the right answer. It is an attempt to set out, as plainly as I can, the reasoning I use to decide whether and how to use AI on a given project — and to share what I have learned.
+This is a working document about how I think through the use of AI models in camera trap workflows for ecological monitoring. It is not a tutorial for any single piece of software, and it is not a claim that AI is always the right answer (because it's not!). It is an attempt to set out the reasoning I use to decide whether and how to use AI on a given project — and to share what I have learned.
 
-It is aimed at ecologists, conservation practitioners, and anyone wrangling large volumes of camera trap imagery who is trying to decide whether a detector, a classifier, or no model at all is the right tool for their particular purpose.
+This guide is aimed at ecologists, conservation practitioners, and anyone wrangling large volumes of camera trap imagery who is trying to decide whether a detector, a classifier, or no model at all is the right tool for their particular purpose.
 
-One framing point before we start. It is tempting to treat AI as inherently risky and human review as the safe default. That framing is misleading. Every option has an error profile, including the use of humans and especially the use of humans under particular circumstances. The question we need to ask is not "Is AI risky?" but "Which of the options open to me have error profiles I can live with, given what I am trying to do?"
+One framing point before we start. It is tempting to treat AI as inherently risky and human review as the safe default. That framing is misleading. Every option has an error profile, including the use of humans and especially the use of humans under particular circumstances. The question we need to ask is not "Is AI risky?" but "Which of the options open to me have error profiles I can live with, given what I am trying to do and what my values are?"
 
 ### AI in biodiversity conservation
 
 Using AI for ecological image analysis is not new, but it has become dramatically more accessible. Tools that once required a machine-learning team and a GPU cluster now run on a laptop with a friendly interface, and what were once expensive proprietary products are increasingly being released open-source, for others to use for free and further develop. That accessibility is a big win for conservation.
 
-But it also carries risks: over-trust in outputs, silent failures on rare or unusual species, and the temptation to let a confidence score stand in for ecological judgement. The rest of this document is largely about managing those risks deliberately.
+But it also carries risks. The rest of this document is about managing those risks deliberately.
 
-## 2. Foundations: the kinds of AI you will meet
+## 2. Foundations: kinds of AI
 
 ### Analytical AI versus generative AI
 
-Most of the AI used in camera trap work is what we can loosely call **analytical** AI: models trained to draw a conclusion about an existing image, such as "there is an animal in this image" or "this is an image of a Southern Brown Bandicoot." MegaDetector and species classifiers fall into this category. These models are small, and especially when they run on your local computer rather than in the cloud, aren't associated with notorious water and energy use issues.
+Most of the AI used in camera trap work is what we can loosely call **analytical** AI: models trained to make predications and draw conclusions about an existing image, such as "there is an animal in this image" or "this is an image of a Southern Brown Bandicoot." MegaDetector and species classifiers (including those used in iNaturalist) fall into this category. These models are small, and especially when they run on your local computer rather than in the cloud, aren't associated with the notorious water and energy use issues associated with AI.
 
-Analytical AI is distinct from **generative** AI, which produces *new content* (text, images). For example, if we gave one of the generative AI services (Claude, ChatGPT, Co-Pilot, Gemini, etc.) two camera trap images — one of a Brush-tailed Possum and the other an Eastern Ring-tailed Possum — and asked it to combine them to form a new species, a "Ring-brushed-tailed possum," that would be generative AI. Generative AI is associated with significant resource use.
+Analytical AI is distinct from **generative** AI, which produces *new content* (text, images). For example, if we gave one of the generative AI services (Claude, ChatGPT, Co-Pilot, Gemini, etc.) two camera trap images — one of a Common Brush-tailed Possum and the other an Eastern Ring-tailed Possum — and asked it to combine them to form a new species, a "Ring-brushed-tailed possum," that would be generative AI. Generative AI is associated with significant resource use.
 
 In this document, when I say "AI" I mean analytical AI. The distinction matters mainly because they make mistakes in different ways, and conflating them leads to bad intuitions about reliability.
 
 ### Detectors and classifiers, and how they work together
 
-A **detector** answers a spatial question: is there something of interest in this image, and if so where within the image? MegaDetector, for example, is an open-source model originally made by the 'Microsoft AI for Good Lab' that can tell if a camera trap image has a person, vehicle or animal in it, or whether it is "empty." It draws a box around the animal/person/vehicle within the image without saying what species the animal is. It also assigns a confidence score to its detection, e.g. 0.9 means MegaDetector is 90% confident there is an animal in the image.
+A **detector** answers a spatial question: is there something of interest in this image, and if so, where within the image is it? MegaDetector, for example, is an open-source model originally made by the 'Microsoft AI for Good Lab' that can tell if a camera trap image has a person, vehicle or animal in it, or whether it is "empty." It draws a box around the animal/person/vehicle within the image without saying what species the animal is. It also assigns a confidence score to its detection, e.g. 0.9 means MegaDetector is 90% confident there is an animal in the image.
 
 A **classifier** answers an identity question: what animal is within the box within the image? Classifiers assign a label (e.g. "Southern Brown Bandicoot") and a confidence score (e.g. 0.85).
 
-In a typical pipeline these two types of models are used in sequence: the detector finds and crops the animal, and the classifier identifies what is in the crop. This division of labour matters because it localises where errors come from. A missed animal is a detector problem; a misidentified one is a classifier problem; and the two compound — a classifier never gets the chance to identify an animal the detector failed to find.
+In a typical pipeline these two types of models are used in sequence: the detector finds and crops the animal, and the classifier identifies what is in the crop. This division of labour matters because it localises where errors come from. A missed animal is a detector problem; a misidentified one is a classifier problem; and the two can compound — a classifier never gets the chance to identify an animal the detector failed to find.
 
 ## 3. How these models err
 
-You cannot choose responsibly between options until you understand how each one breaks. The error vocabulary below is the foundation for everything that follows.
+You cannot choose responsibly between options until you understand how each one breaks.
 
 ### Detector errors
 
-- **False positives:** the detector reports an animal in the image when there is in fact no animal in the image. MegaDetector sometimes thinks that grasstrees or tree trunks with interesting markings are animals.
+- **False positives:** the detector reports an animal in the image when there is in fact no animal in the image. MegaDetector sometimes thinks that grasstrees or tree trunks with interesting markings that look like eyes are animals.
 
   > **TODO:** insert examples of false detections.
 
