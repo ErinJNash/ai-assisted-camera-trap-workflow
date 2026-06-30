@@ -185,7 +185,7 @@ This is a legitimate, defensible outcome of this process. Going through the abov
 
 ### Human-in-the-loop triage
 
-The most useful middle ground is usually to let AI triage rather than decide. Use the model to sort, then spend human attention where it matters. Saul Greenberg's has an excellent guide to using a spectrum of different AI assisted workflows in Timelapse ([Timelapse Image Recognition Guide](https://timelapse.ucalgary.ca/wp-content/uploads/Guides/TimelapseImageRecognitionGuide.pdf/)). 
+The most useful middle ground is usually to let AI triage rather than decide. Use the model to sort, then spend human attention where it matters. Saul Greenberg's has an excellent guide to using a spectrum of different AI assisted workflows in Timelapse ([Timelapse Image Recognition Guide](https://timelapse.ucalgary.ca/wp-content/uploads/Guides/TimelapseImageRecognitionGuide.pdf)). 
 
 ### AI with programmatic post-processing 
 
