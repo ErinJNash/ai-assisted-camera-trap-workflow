@@ -12,8 +12,6 @@
 
 ## The workflow at a glance
 
-![Six-stage camera trap workflow diagram](docs/images/workflow-diagram.png)
-
 This camera trap workflow runs in six stages. Each links to the relevant folder in this repository.
 
 | Stage | What happens | In / out | Go to |
